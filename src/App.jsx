@@ -4,14 +4,14 @@ import {Routes, Route} from "react-router-dom"
 import Cart from './pages/Cart';
 import Home from './pages/Home';
 
-import Navbar from './components/Navbar';
+import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 
 function App() {
 
 	return (
 		<>
-		<Navbar />
+		<NavBar />
 		<div className="container mt-4 mb-4">
 			<Routes>
 				<Route path="/" element={<Home />} />

@@ -1,5 +1,4 @@
 import BookCard from "../components/BookCard";
-import Navbar from "../components/Navbar";
 
 import { searchBooks, getTrendingBooks } from "../services/api";
 
@@ -59,22 +58,22 @@ function Home() {
     return (
         <>
 
-            <h1>Home</h1>
+            <h1 className="fw-bold">Home</h1>
 
-            <form onSubmit={handleSearch} className="input-group mb-3">
-                <button 
-                    className="btn btn-primary" 
-                    type="submit" 
+            <form onSubmit={handleSearch} className="input-group mb-5">
+                <button
+                    className="btn btn-primary"
+                    type="submit"
                     id="button-addon1"
                 >
                     <i className="bi bi-search"></i>
                 </button>
-                <input 
-                    type="text" 
-                    className="form-control" 
-                    placeholder="Search" 
-                    aria-label="Example text with button addon" 
-                    aria-describedby="button-addon1" 
+                <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Search"
+                    aria-label="Example text with button addon"
+                    aria-describedby="button-addon1"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                 />
