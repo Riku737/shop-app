@@ -32,17 +32,34 @@ export const getAuthor = async (author_key) => {
 	}
 
 	const data = await response.json();
+	// console.log(data)
 	return (data);
+}
+
+export const getAuthorName = async (authors) => {
+
+	const author_name = [];
+
+	for (const author of authors) {
+
+		// console.log(author);
+
+		const response = await fetch(`${BASE_URL}${author.author.key}.json`);
+		const data = await response.json();
+		author_name.push(data.name);
+	}
+
+	return (author_name);
 }
 
 export const getBook = async (book_key) => {
 	const response = await fetch(`${BASE_URL}/works/${book_key}.json`);
-	const data = await response.json();
-	console.log(data);
 
 	if (!response.ok) { // Response validation (e.g., error 404)
 		throw new Error(`Unable to find a book with ID ${book_key}.`);
 	}
 
+	const data = await response.json();
+	// console.log(data)
 	return (data);
 }
