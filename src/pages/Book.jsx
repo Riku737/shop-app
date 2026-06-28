@@ -1,6 +1,7 @@
 import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {getAuthorName, getBook} from "../services/api.js";
+import Description from "../components/Description.jsx";
 
 function Book() {
 
@@ -20,8 +21,7 @@ function Book() {
                 const data = await getBook(id);
 
                 // Retrieve author names manually because book API doesn't show the names (only shows author IDs)
-                const authors = await getAuthorName(data.authors);
-                data["authors"] = authors;
+                data["authors"] = await getAuthorName(data.authors);
                 setBook(data);
                 console.log(data);
 
@@ -40,8 +40,13 @@ function Book() {
     if (!book) return <h1>No book found</h1>;
 
     let cover_image;
-    (book.covers) ? cover_image = `https://covers.openlibrary.org/b/id/${book.covers[0]}-M.jpg` : cover_image = "https://placehold.net/400x600.png";
+    (book.covers) ? cover_image = `https://covers.openlibrary.org/b/id/${book.covers[0]}-L.jpg` : cover_image = "https://placehold.net/400x600.png";
 
+    // function readMore(description) {
+    //     if (description.length > 200) {
+    //         return()
+    //     }
+    // }
     return (
         <>
             <div className="row">
@@ -68,7 +73,33 @@ function Book() {
                             </span>
                         ))}
                     </p>
+
+                    <div className="input-group">
+
+                        <button type="button" className="btn btn-primary">Want to Read</button>
+                        <button type="button"
+                                className="btn btn-primary dropdown-toggle dropdown-toggle-split"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                            <span className="visually-hidden">Toggle Dropdown</span>
+                        </button>
+                        <ul className="dropdown-menu dropdown-menu-end">
+                            <li><a className="dropdown-item" href="#">Currently Reading</a></li>
+                            <li><a className="dropdown-item" href="#">Read</a></li>
+                            <li><a className="dropdown-item" href="#">Did Not Finish</a></li>
+                        </ul>
+                    </div>
+
+                    <Description content={book.description} />
                 </div>
+            </div>
+            <hr className="hr my-4"/>
+            <div>
+                <h2>Overview</h2>
+                {book.subjects.map((subject, index) => (
+                    <div key={index}>
+                        {subject}
+                    </div>
+                ))}
             </div>
         </>
     );
