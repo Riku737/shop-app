@@ -1,4 +1,4 @@
-import BookCard from "../components/BookCard";
+import HomeBookCard from "../components/HomeBookCard.jsx";
 
 import { searchBooks, getTrendingBooks } from "../services/api";
 
@@ -90,7 +90,7 @@ export default function Home() {
                     {books.map(
                         (book) => 
                             (
-                                <BookCard book={book} key={book.key} />
+                                <HomeBookCard book={book} key={book.key} />
                             )
                     )}
                 </div>

@@ -1,4 +1,4 @@
-function BookCard({book}) {
+export default function HomeBookCard({book}) {
 
     // Extract book ID
     let book_id = book.key.split("/")[2];
@@ -6,9 +6,11 @@ function BookCard({book}) {
 
     // Assign book cover, else default placeholder
     let cover_image;
-    (book.cover_i) ? cover_image = `https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg` : cover_image = "https://placehold.net/400x600.png";
-
-    console.log(book);
+    if (book.cover_i) {
+        cover_image = `https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`;
+    } else {
+        cover_image = "https://placehold.net/400x600.png";
+    }
 
     return(
         <>
@@ -50,5 +52,3 @@ function BookCard({book}) {
     );
 
 }
-
-export default BookCard;
