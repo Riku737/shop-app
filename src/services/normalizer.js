@@ -1,0 +1,1 @@
+// Normalize information from API
