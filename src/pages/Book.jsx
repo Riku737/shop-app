@@ -72,7 +72,7 @@ export default function Book() {
                         </p>
                     </div>
 
-                    <BookButton />
+                    <BookButton book={book} />
 
                     <Description content={book.description}/>
 
