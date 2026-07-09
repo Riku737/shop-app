@@ -1,4 +1,4 @@
-import HomeBookCard from "../components/HomeBookCard.jsx";
+import HomeBookCard from "../components/books/HomeBookCard.jsx";
 
 import { searchBooks, getTrendingBooks } from "../services/api";
 

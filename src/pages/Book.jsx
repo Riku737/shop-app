@@ -1,9 +1,9 @@
 import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {getAuthorName, getBook} from "../services/api.js";
-import Description from "../components/BookDescription.jsx";
-import BookButton from "../components/BookDropdown.jsx";
-import BookCoverCarousel from "../components/BookCoverCarousel.jsx";
+import Description from "../components/books/BookDescription.jsx";
+import BookButton from "../components/books/BookDropdown.jsx";
+import BookCoverCarousel from "../components/books/BookCoverCarousel.jsx";
 
 export default function Book() {
 

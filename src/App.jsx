@@ -1,11 +1,10 @@
 import './css/App.css';
 import {Routes, Route} from "react-router-dom";
 
-import Cart from './pages/Bookshelf.jsx';
 import Home from './pages/Home';
 
-import NavBar from './components/NavBar';
-import Footer from './components/Footer';
+import NavBar from './components/layout/NavBar.jsx';
+import Footer from './components/layout/Footer.jsx';
 
 import Book from "./pages/Book";
 import Author from "./pages/Author";

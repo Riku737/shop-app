@@ -1,4 +1,4 @@
-import { addToBookshelf } from "../db/database.js";
+import { addToBookshelf } from "../../db/database.js";
 
 function BookDropdown({book}) {
 

@@ -1,6 +1,6 @@
 import { db } from "../db/database.js";
 import {useEffect, useState} from "react";
-import BookshelfBookCard from "../components/BookshelfBookCard.jsx";
+import BookshelfBookCard from "../components/books/BookshelfBookCard.jsx";
 
 export default function Bookshelf() {
 
