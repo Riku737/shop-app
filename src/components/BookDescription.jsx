@@ -12,7 +12,9 @@ function BookDescription({ content }) {
     1. Dictionary of two elements (type and value); or a
     2. Single string (only description data)
      */
-    if (Object.keys(content).length === 2) {
+    if (content === null || content === undefined) {
+        description = "No description available.";
+    } else if (Object.keys(content).length === 2) {
         description = content.value;
     } else {
         description = content;
