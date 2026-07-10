@@ -50,7 +50,7 @@ export default function Bookshelf() {
                 <li className="nav-item" role="presentation">
                     <button
                         onClick={() => setStatus("want_to_read")}
-                        className={`nav-link ${bookshelfStatus === "tbr" && "active"}`}
+                        className={`nav-link ${(bookshelfStatus === "tbr" || bookshelfStatus === undefined) && "active"}`}
                         id="want_to_read-tab"
                         data-bs-toggle="tab"
                         data-bs-target="#want_to_read-tab-pane"
