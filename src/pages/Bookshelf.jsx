@@ -61,22 +61,6 @@ export default function Bookshelf() {
                 {/* Currently Reading */}
                 <li className="nav-item" role="presentation">
                     <button
-                        onClick={() => handleTabClick("read")}
-                        className={`nav-link ${bookshelfStatus === "read" && "active"}`}
-                        id="read"
-                        data-bs-toggle="tab"
-                        data-bs-target="#read-tab-pane"
-                        type="button"
-                        role="tab"
-                        aria-controls="read-tab-pane"
-                        aria-selected="false"
-                    >
-                        Read ({totalBooks.read})
-                    </button>
-                </li>
-                {/* Read */}
-                <li className="nav-item" role="presentation">
-                    <button
                         onClick={() => handleTabClick("reading")}
                         className={`nav-link ${bookshelfStatus === "reading" && "active"}`}
                         id="reading"
@@ -88,6 +72,22 @@ export default function Bookshelf() {
                         aria-selected="false"
                     >
                         Currently Reading ({totalBooks.reading})
+                    </button>
+                </li>
+                {/* Read */}
+                <li className="nav-item" role="presentation">
+                    <button
+                        onClick={() => handleTabClick("read")}
+                        className={`nav-link ${bookshelfStatus === "read" && "active"}`}
+                        id="read"
+                        data-bs-toggle="tab"
+                        data-bs-target="#read-tab-pane"
+                        type="button"
+                        role="tab"
+                        aria-controls="read-tab-pane"
+                        aria-selected="false"
+                    >
+                        Read ({totalBooks.read})
                     </button>
                 </li>
                 {/* Did Not Finish */}
@@ -124,11 +124,11 @@ export default function Bookshelf() {
                     </div>
 
                 </div>
-                {/*Read*/}
+                {/*Currently Reading*/}
                 <div
-                    className={`tab-pane fade ${bookshelfStatus === "read" && "show active"}`}
+                    className={`tab-pane fade ${bookshelfStatus === "reading" && "show active"}`}
                     role="tabpanel"
-                    aria-labelledby="read-tab"
+                    aria-labelledby="reading-tab"
                     tabIndex="0"
                 >
 
@@ -139,11 +139,11 @@ export default function Bookshelf() {
                     </div>
 
                 </div>
-                {/*Currently Reading*/}
+                {/*Read*/}
                 <div
-                    className={`tab-pane fade ${bookshelfStatus === "reading" && "show active"}`}
+                    className={`tab-pane fade ${bookshelfStatus === "read" && "show active"}`}
                     role="tabpanel"
-                    aria-labelledby="reading-tab"
+                    aria-labelledby="read-tab"
                     tabIndex="0"
                 >
 
