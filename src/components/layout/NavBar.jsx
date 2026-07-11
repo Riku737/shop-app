@@ -70,29 +70,6 @@ function NavBar() {
 
                             </ul>
 
-                            {/*Center (web search)*/}
-                            <form
-                                className="input-group position-absolute top-50 start-50 translate-middle w-25 d-none d-lg-flex"
-                                role="search"
-                            >
-                                {/*Search button*/}
-                                <button
-                                    className="btn btn-primary"
-                                    type="submit"
-                                    id="button-search"
-                                >
-                                    <i className="bi bi-search"></i>
-                                </button>
-                                {/*Search field*/}
-                                <input
-                                    type="text"
-                                    className="form-control"
-                                    placeholder="Search by title or author"
-                                    aria-label="Search"
-                                    aria-describedby="button-search-field"
-                                />
-                            </form>
-
                             {/*Right*/}
                             <ul className="navbar-nav">
                                 <li className="nav-item">
@@ -105,6 +82,29 @@ function NavBar() {
                         </div>
 
                     </div>
+
+                    {/*Center (web search)*/}
+                    <form
+                        className="input-group position-absolute top-50 start-50 translate-middle w-25 d-none d-lg-flex"
+                        role="search"
+                    >
+                        {/*Search button*/}
+                        <button
+                            className="btn btn-primary"
+                            type="submit"
+                            id="button-search"
+                        >
+                            <i className="bi bi-search"></i>
+                        </button>
+                        {/*Search field*/}
+                        <input
+                            type="text"
+                            className="form-control"
+                            placeholder="Search by title or author"
+                            aria-label="Search"
+                            aria-describedby="button-search-field"
+                        />
+                    </form>
 
                 </div>
 
