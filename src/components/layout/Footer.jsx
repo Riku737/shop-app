@@ -6,11 +6,13 @@ function Footer() {
         <>
         <div className="bg-light py-5">
             <div className="container">
+
                 <div className="row">
 
                     <div className="col-lg-3 col-6">
                         <h6>BookBook</h6>
-                        <p>A clean, simple catalog where you can organize every book in your reading life. It's your bookshelf.</p>
+                        <p>A clean, simple catalog where you can organize every book in your reading life. It's your
+                            bookshelf.</p>
                     </div>
 
                     <div className="col-lg-3 col-6">
@@ -44,6 +46,23 @@ function Footer() {
                     </div>
 
                 </div>
+
+                <hr/>
+
+                <div className="row">
+                    <div className="col-lg-6">
+                        <p>API: <a href="https://openlibrary.org/" target="_blank">Open Library</a></p>
+                    </div>
+                    <div className="col-lg-6">
+                        <ul className="list-unstyled d-flex justify-content-lg-end flex-row gap-3">
+                            <li>
+                                <a className="link" href="https://github.com/Riku737/book-app" target="_blank"><i
+                                    className="bi bi-github me-1"></i>Github</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
             </div>
         </div>
         </>
