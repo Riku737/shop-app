@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import {useLiveQuery} from "dexie-react-hooks";
 import {db} from "../../db/database.js";
-import SearchBar from "../SearchBar.jsx";
+import SearchBar from "./SearchBar.jsx";
 
 function NavBar() {
 
@@ -38,17 +38,8 @@ function NavBar() {
                             {/*Left*/}
                             <ul className="navbar-nav">
 
-                                {/*Trending*/}
-                                <li className="nav-item dropdown">
-                                    <a className="nav-link dropdown-toggle" href="#" role="button"
-                                       data-bs-toggle="dropdown" aria-expanded="false">
-                                        Trending
-                                    </a>
-                                    <ul className="dropdown-menu">
-                                        <li><Link to="" className="dropdown-item">Action</Link></li>
-                                        <li><Link to="" className="dropdown-item">Another action</Link></li>
-                                        <li><Link to="" className="dropdown-item">Something else here</Link></li>
-                                    </ul>
+                                <li className="nav-item">
+                                    <Link to="/home" className="nav-link">Home</Link>
                                 </li>
 
                                 {/*Subject*/}

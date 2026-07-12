@@ -33,7 +33,7 @@ function SearchBar() {
                     required
                     type="text"
                     className="form-control"
-                    placeholder="Search by title or author"
+                    placeholder="Search by title or author (Open Library API)"
                     aria-label="Search"
                     aria-describedby="button-search-field"
                 />

@@ -16,7 +16,15 @@ function Footer() {
                         </div>
 
                         <div className="col-lg-3 col-6">
-                            <h6>Bookshelf</h6>
+                            <h6>Discover</h6>
+                            <ul className="list-unstyled d-flex flex-column gap-2">
+                                <li><Link to="/home">Home</Link></li>
+                                <li><Link to="/search">Search</Link></li>
+                            </ul>
+                        </div>
+
+                        <div className="col-lg-3 col-6">
+                            <h6>My Bookshelf</h6>
                             <ul className="list-unstyled d-flex flex-column gap-2">
                                 <li><Link to="/bookshelf/want_to_read">Want to Read</Link></li>
                                 <li><Link to="/bookshelf/reading">Currently Reading</Link></li>
@@ -26,22 +34,12 @@ function Footer() {
                         </div>
 
                         <div className="col-lg-3 col-6">
-                            <h6>Trending</h6>
-                            <ul className="list-unstyled d-flex flex-column gap-2">
-                                <li>Text</li>
-                                <li>Text</li>
-                                <li>Text</li>
-                                <li>Text</li>
-                            </ul>
-                        </div>
-
-                        <div className="col-lg-3 col-6">
                             <h6>Subject</h6>
                             <ul className="list-unstyled d-flex flex-column gap-2">
-                                <li>Text</li>
-                                <li>Text</li>
-                                <li>Text</li>
-                                <li>Text</li>
+                                <li><Link to="/bookshelf/want_to_read">Want to Read</Link></li>
+                                <li><Link to="/bookshelf/want_to_read">Want to Read</Link></li>
+                                <li><Link to="/bookshelf/want_to_read">Want to Read</Link></li>
+                                <li><Link to="/bookshelf/want_to_read">Want to Read</Link></li>
                             </ul>
                         </div>
 
@@ -49,7 +47,7 @@ function Footer() {
 
                     <hr/>
 
-                    <p>This website is a personal, non-commercial project. All book metadata and cover images are sourced from the <a href="https://openlibrary.org/" target="_blank">Open Library API</a>, and all trademarks belong to their respective owners.</p>
+                    <p>This website is a personal, non-commercial project. All book information and cover images are sourced from the <a href="https://openlibrary.org/" target="_blank">Open Library API</a>, and all trademarks belong to their respective owners.</p>
                     <p>This site stores data locally in your browser using IndexedDB. No information is shared or uploaded.</p>
 
                 </div>
