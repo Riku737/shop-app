@@ -1,16 +1,69 @@
-# React + Vite
+![ReadmeThumbnail0.png](docs/ReadmeThumbnail0.png)
+# BookBook: Book Tracker App
+![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=000)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=000)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=fff)
+![Dexie.js](https://img.shields.io/badge/Dexie.js-3A3A3A?style=for-the-badge&logo=dexie&logoColor=fff)
+![Open Library API](https://img.shields.io/badge/Open%20Library%20API-3D8B3D?style=for-the-badge&logo=openlibrary&logoColor=fff)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=fff)
+![SASS](https://img.shields.io/badge/SASS-CC6699?style=for-the-badge&logo=sass&logoColor=fff)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=fff)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=fff)
+![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=fff)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Search for books, add them to your reading lists, and keep track of your progress.
+___
 
-Currently, two official plugins are available:
+## Features
+* Built with **ReactJS + Vite** using modern **JavaScript**, **React Hooks**, and **React Router DOM** for dynamic routes and query-based navigation
+* Search by title/author via the **Open Library API**, with helper-based fetching and request-limit-aware handling
+* Track books in four shelves (**Want to Read, Currently Reading, Read, Did Not Finish**) with seamless move/remove actions
+* Styled using **Bootstrap** components customized with **Sass/CSS** (plus **HTML/CSS** foundations and Google Fonts)
+* Better UX through loading skeletons, edge/error states, and read more/read less descriptions
+* Uses **Dexie.js** (**IndexedDB**) for local persistence with seed/helper utilities, and is deployed on **Vercel**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+___
 
-## React Compiler
+## Demo
+A live demo of the app is available at [bookbook-demo.vercel.app](https://bookbook-demo.vercel.app/).
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+![ReadmeThumbnail1.png](docs/ReadmeThumbnail1.png)
+![ReadmeThumbnail2.png](docs/ReadmeThumbnail2.png)
+![ReadmeThumbnail3.png](docs/ReadmeThumbnail3.png)
+___
 
-## Expanding the ESLint configuration
+## Installation
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. Clone the repo
+```
+git clone https://github.com/Riku737/Book-Tracker-App.git
+cd Book-Tracker-App
+```
+2. Install dependencies
+```
+npm install
+```
+3. Start the development server
+```
+npm run dev
+```
+4. Open your browser at the port printed by the dev server (e.g., http://localhost:3000).
+___
+
+## Project Structure
+```
+/public
+/src
+    /assets
+    /components         # UI components
+    /db
+        database.js     # Database set-up
+        seeder.js       # Initial database data
+    /pages         
+    /services           # API calls to Open Library
+    /styles             # SCSS / CSS
+    App.jsx
+    main.jsx
+package.json
+README.md
+```
