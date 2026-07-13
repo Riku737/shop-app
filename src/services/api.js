@@ -1,12 +1,14 @@
-// Open Library (openlibrary.org)
-// API Documentation: https://openlibrary.org/developers/api
-// REST (Representational State Transfer) API
+/*
+Open Library (openlibrary.org)
+API Documentation: https://openlibrary.org/developers/api
+REST (Representational State Transfer) API
+*/
 
 const BASE_URL = "https://openlibrary.org";
 
 // Asynchronous operations/tasks that takes time and mandates a Promise (give data eventually) to be returned
 
-// Return the trendiest books from Open Library
+// Return the trendiest books (weekly) from Open Library
 export async function getTrendingBooks() {
 	/*
 	1. Send request to URL (Open Library API) and asks server for data

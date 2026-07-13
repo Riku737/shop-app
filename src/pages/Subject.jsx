@@ -1,8 +1,13 @@
+// React & router
 import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
+
+// API services
 import {getBooksBySubject} from "../services/api.js";
-import SubjectBookCard from "../components/books/SubjectBookCard.jsx";
-import LoadingBookCards from "../components/loading/LoadingBookCards.jsx";
+
+// Components
+import Card from "../components/books/cards/SubjectBookCard.jsx";
+import Loading from "../components/loading/LoadingBookCards.jsx";
 
 export default function Subject() {
 
@@ -13,20 +18,17 @@ export default function Subject() {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        const loadBooks = async () => {
-            try {
-                setLoading(true);
-                setError(null);
 
+        const loadBooks = async () => {
+            setLoading(true);
+            setError(null);
+            try {
                 const data = await getBooksBySubject(subject);
                 setBooks(data);
-
                 document.title = `${subject} | BookBook`; // Dynamic page title
-
                 if (data.length === 0) {
                     setError("No books found for subject.");
                 }
-
             } catch (e) {
                 console.log(e);
                 setError("Failed to load books from subject.");
@@ -35,14 +37,17 @@ export default function Subject() {
             }
         }
         loadBooks();
+
     }, [subject]) // Render whenever subject updates
 
+    // Loading state
     if (loading) {
         return(
-            <LoadingBookCards title={subject} />
+            <Loading title={subject} />
         );
     }
 
+    // Error state
     if (error) {
         return(
             <>
@@ -51,12 +56,13 @@ export default function Subject() {
         );
     }
 
+    // Standard state
     return(
         <>
             <h1 className="mb-4">{subject}</h1>
             <div className="row g-4">
                 {books.map((book, index) => (
-                    <SubjectBookCard key={index} book={book} />
+                    <Card key={index} book={book} />
                 ))}
             </div>
         </>

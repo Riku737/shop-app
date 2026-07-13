@@ -4,11 +4,12 @@ The components HomeBookCard and BookshelfBookCard are identical visually.
 However, the underlying code are completely different due to the inconsistent format of the API.
  */
 
+import BookAuthors from "../details/BookAuthors.jsx";
+
 export default function SearchBookCard({book}) {
 
-    // Extract book ID
-    let book_id = book.key.split("/")[2];
-    const book_link = `/books/${book_id}`;
+    // Extract ID and generate link to book
+    const book_link = `/books/${book.key.split("/")[2]}`;
 
     return(
         <>
@@ -25,22 +26,19 @@ export default function SearchBookCard({book}) {
                     />
                 </a>
 
-                {/*Book Title & Author*/}
+                {/*Book Info*/}
                 <div className="d-flex flex-column">
+
+                    {/*Book Title*/}
                     <h6 className="fw-medium m-0"><a href={book_link}>{book.title}</a></h6>
-                    <p className="m-0 fs-6"><small>
-                        {/*List authors with URLs*/}
-                        {/*Robust approach to handle edge cases (null/undefine)*/}
-                        {(book?.author_name || []).map((name, index) => (
-                            <span key={index}>
-                                <a
-                                    href={`/authors/${book.author_key?.[index]}`}>
-                                    {name}
-                                </a>
-                                {index < book.author_name.length - 1 && ", "}
-                            </span>
-                        ))}
-                    </small></p>
+
+                    {/*Authors*/}
+                    <p className="m-0 fs-6">
+                        <small>
+                            <BookAuthors names={book.author_name} ids={book.author_key?.map(key => ("/authors/" + key))} />
+                        </small>
+                    </p>
+
                 </div>
 
             </div>

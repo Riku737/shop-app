@@ -1,3 +1,5 @@
+import BookAuthors from "../details/BookAuthors.jsx";
+
 export default function BookshelfBookCard({book}) {
 
     // Extract book ID
@@ -22,29 +24,23 @@ export default function BookshelfBookCard({book}) {
                         />
                     </a>
 
-                    {/*Book Title & Author*/}
+                    {/*Book Title Info*/}
                     <div className="d-flex flex-column">
+
+                        {/*Book Title*/}
                         <h6 className="fw-medium m-0"><a href={book_link}>{book.title}</a></h6>
-                        <p className="m-0 fs-6"><small>
-                            {/*List authors with URLs*/}
-                            {/*Robust approach to handle edge cases (null/undefine)*/}
-                            {(book?.authors || []).map((author, index) => (
-                                <span key={index}>
-                                <a
-                                    href={`${author.key}`}>
-                                    {author.name}
-                                </a>
-                                    {index < book.authors.length - 1 && ", "}
-                            </span>
-                            ))}
-                        </small></p>
+
+                        {/*Authors*/}
+                        <p className="m-0 fs-6">
+                            <small>
+                                <BookAuthors names={book.authors?.map(a => a.name)} ids={book.authors?.map(a => a.key)} />
+                            </small>
+                        </p>
+
+                        {/*Date Added to Bookshelf*/}
                         <p>
                             <small>
-                                Added {book.date.toLocaleDateString("en-US", {
-                                month: "short",
-                                day: "numeric",
-                                year: "numeric"
-                            })}
+                                Added {book.date.toLocaleDateString("en-US", {month: "short", day: "numeric", year: "numeric"})}
                             </small>
                         </p>
                     </div>

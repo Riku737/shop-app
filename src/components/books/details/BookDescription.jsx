@@ -20,10 +20,12 @@ function BookDescription({ content }) {
         description = content;
     }
 
+    // Decisionmaker on whether "read more" is necessary
     if (description.length > TEXTLENGTH) {
         textLimit = true;
     }
 
+    // Controller for "read more" text
     function readMore() {
         setOpen(!open);
     }

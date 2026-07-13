@@ -1,8 +1,8 @@
+import BookAuthors from "../details/BookAuthors.jsx";
+
 export default function SubjectBookCard({book}) {
 
     // Extract book ID
-
-    console.log(book);
 
     let book_id = book.key.split("/")[2];
     const book_link = `/books/${book_id}`;
@@ -25,19 +25,11 @@ export default function SubjectBookCard({book}) {
                     {/*Book Title & Author*/}
                     <div className="d-flex flex-column">
                         <h6 className="fw-medium m-0"><a href={book_link}>{book.title}</a></h6>
-                        <p className="m-0 fs-6"><small>
-                            {/*List authors with URLs*/}
-                            {/*Robust approach to handle edge cases (null/undefine)*/}
-                            {(book?.authors || []).map((author, index) => (
-                                <span key={index}>
-                                <a
-                                    href={`/authors/${author.key?.[index]}`}>
-                                    {author.name}
-                                </a>
-                                    {index < book.authors.length - 1 && ", "}
-                            </span>
-                            ))}
-                        </small></p>
+                        <p className="m-0 fs-6">
+                            <small>
+                                <BookAuthors names={book.authors?.map(a => a.name)} ids={book.authors?.map(a => a.key)} />
+                            </small>
+                        </p>
                     </div>
 
                 </div>

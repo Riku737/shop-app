@@ -1,9 +1,10 @@
-import "../../css/book.css";
+import "../../../css/book.css";
 
 export default function BookCoverCarousel({book}) {
     return(
         <>
             <div className="bg-light ratio ratio-1x1 rounded">
+
                 {(book.covers) ? (
                     <div id="carouselExample" className="carousel slide">
 

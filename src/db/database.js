@@ -1,6 +1,10 @@
 import { Dexie } from "dexie";
 import { seedDatabase } from './seeder.js'
 
+/*
+Dexie.js
+ */
+
 export const db = new Dexie("MyBookshelf");
 
 /*

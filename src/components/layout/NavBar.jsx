@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom"
+
 import {useLiveQuery} from "dexie-react-hooks";
 import {db} from "../../db/database.js";
+
 import SearchBar from "./SearchBar.jsx";
 
 function NavBar() {
@@ -16,6 +18,7 @@ function NavBar() {
 
                 <div className="container container-fluid">
 
+                    {/*Website name*/}
                     <Link to="/" className="navbar-brand">BookBook</Link>
 
                     {/*Mobile menu button*/}
@@ -31,6 +34,7 @@ function NavBar() {
                         <span className="navbar-toggler-icon"></span>
                     </button>
 
+                    {/*Menu content*/}
                     <div className="collapse navbar-collapse" id="navbarNavDropdown">
 
                         <div className="d-lg-flex justify-content-between align-items-center w-100 position-relative">
@@ -60,7 +64,7 @@ function NavBar() {
                                     </ul>
                                 </li>
 
-                                {/*Search (mobile)*/}
+                                {/*Search (mobile only)*/}
                                 <li className="nav-item d-lg-none d-flex">
                                     <Link to="/search" className="nav-link">Search</Link>
                                 </li>
@@ -69,6 +73,7 @@ function NavBar() {
 
                             {/*Right*/}
                             <ul className="navbar-nav">
+                                {/*Total bookshelf*/}
                                 <li className="nav-item">
                                     <Link to="/bookshelf" className="nav-link">
                                         Bookshelf ({totalBookshelf ?? 0})
@@ -80,7 +85,7 @@ function NavBar() {
 
                     </div>
 
-                    {/*Center (web search)*/}
+                    {/*Center (desktop/laptop only)*/}
                     <SearchBar/>
 
                 </div>

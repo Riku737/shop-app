@@ -1,8 +1,13 @@
-import BookshelfBookCard from "../components/books/BookshelfBookCard.jsx";
-import { db } from "../db/database.js";
-import { useLiveQuery } from "dexie-react-hooks";
+// React & router
 import {useNavigate, useParams} from 'react-router-dom';
 import {useEffect} from "react";
+
+// Databases
+import { db } from "../db/database.js";
+import { useLiveQuery } from "dexie-react-hooks";
+
+// Components
+import Card from "../components/books/cards/BookshelfBookCard.jsx";
 
 export default function Bookshelf() {
 
@@ -16,23 +21,24 @@ export default function Bookshelf() {
     */
 
     const { status } = useParams(); // Get status from URL
-    const navigate = useNavigate();
-    const currentStatus = status ?? "want_to_read";
+    const navigate = useNavigate(); // Navigate between routes
+    const currentStatus = status ?? "want_to_read"; // Set current status, else default to "Want to Read"
 
-    const books = useLiveQuery(
-        () => db.books.where({ status: currentStatus }).toArray(),
-        [currentStatus]
-    ) ?? [];
-
+    // Fetch all the books from the user's DB
     const allBooks = useLiveQuery(() => db.books.toArray(), []) ?? [];
 
+    // Fetch all books from bookshelf by status
+    const books = allBooks.filter((book) => book.status === currentStatus);
+
+    // Fetch the count of each list (basically, filter books by status and return array size)
     const totalBooks = {
-        want_to_read: allBooks.filter(b => b.status === "want_to_read").length ?? 0,
-        read: allBooks.filter(b => b.status === "read").length ?? 0,
-        reading: allBooks.filter(b => b.status === "reading").length ?? 0,
-        dnf: allBooks.filter(b => b.status === "dnf").length ?? 0,
+        want_to_read: allBooks.filter(book => book.status === "want_to_read").length ?? 0,
+        read: allBooks.filter(book => book.status === "read").length ?? 0,
+        reading: allBooks.filter(book => book.status === "reading").length ?? 0,
+        dnf: allBooks.filter(book => book.status === "dnf").length ?? 0,
     };
 
+    // Update URL to appropriate status
     function handleTabClick(newStatus) {
         navigate(`/bookshelf/${newStatus}`);
     }
@@ -44,16 +50,16 @@ export default function Bookshelf() {
             read: "Read",
             dnf: "Did Not Finish"
         }
-
-        document.title = `${statusMap[currentStatus]} | BookBook` // Page title
+        document.title = `${statusMap[currentStatus]} | BookBook` // Dynamic page title
     }, [currentStatus]);
 
     return (
         <>
             <h1 className="mb-4">My Bookshelf</h1>
 
-            {/*Tabs*/}
+            {/*Tab Buttons*/}
             <ul className="nav nav-tabs mb-4" id="myTab" role="tablist">
+
                 {/* Want to Read */}
                 <li className="nav-item" role="presentation">
                     <button
@@ -68,6 +74,7 @@ export default function Bookshelf() {
                         Want to Read ({totalBooks.want_to_read})
                     </button>
                 </li>
+
                 {/* Currently Reading */}
                 <li className="nav-item" role="presentation">
                     <button
@@ -82,6 +89,7 @@ export default function Bookshelf() {
                         Currently Reading ({totalBooks.reading})
                     </button>
                 </li>
+
                 {/* Read */}
                 <li className="nav-item" role="presentation">
                     <button
@@ -96,6 +104,7 @@ export default function Bookshelf() {
                         Read ({totalBooks.read})
                     </button>
                 </li>
+
                 {/* Did Not Finish */}
                 <li className="nav-item" role="presentation">
                     <button
@@ -111,23 +120,24 @@ export default function Bookshelf() {
                     </button>
                 </li>
             </ul>
+
             {/*Tab Panes*/}
             <div className="tab-content" id="myTabContent">
-            {/*Want to Read*/}
+
+                {/*Want to Read*/}
                 <div
                     className={`tab-pane fade ${(status === "want_to_read" || status === undefined) && "show active"}`}
                     role="tabpanel"
                     aria-labelledby="want_to_read-tab"
                     tabIndex="0"
                 >
-
                     <div className="row g-4">
                         {books.map((book, index) => (
-                            <BookshelfBookCard book={book} key={index} />
+                            <Card book={book} key={index} />
                         ))}
                     </div>
-
                 </div>
+
                 {/*Currently Reading*/}
                 <div
                     className={`tab-pane fade ${status === "reading" && "show active"}`}
@@ -135,14 +145,13 @@ export default function Bookshelf() {
                     aria-labelledby="reading-tab"
                     tabIndex="0"
                 >
-
                     <div className="row g-4">
                         {books.map((book, index) => (
-                            <BookshelfBookCard book={book} key={index} />
+                            <Card book={book} key={index} />
                         ))}
                     </div>
-
                 </div>
+
                 {/*Read*/}
                 <div
                     className={`tab-pane fade ${status === "read" && "show active"}`}
@@ -150,14 +159,13 @@ export default function Bookshelf() {
                     aria-labelledby="read-tab"
                     tabIndex="0"
                 >
-
                     <div className="row g-4">
                         {books.map((book, index) => (
-                            <BookshelfBookCard book={book} key={index} />
+                            <Card book={book} key={index} />
                         ))}
                     </div>
-
                 </div>
+
                 {/*Did Not Finish*/}
                 <div
                     className={`tab-pane fade ${status === "dnf" && "show active"}`}
@@ -165,14 +173,13 @@ export default function Bookshelf() {
                     aria-labelledby="dnf-tab"
                     tabIndex="0"
                 >
-
                     <div className="row g-4">
                         {books.map((book, index) => (
-                            <BookshelfBookCard book={book} key={index} />
+                            <Card book={book} key={index} />
                         ))}
                     </div>
-
                 </div>
+
             </div>
         </>
     );

@@ -1,7 +1,5 @@
 export default function BookCover({book}) {
 
-    console.log(book);
-
     return(
         <>
             <div className="bg-light ratio ratio-1x1 rounded">

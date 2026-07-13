@@ -1,3 +1,4 @@
+// React
 import './css/App.css';
 import { Routes, Route } from "react-router-dom";
 
@@ -19,7 +20,7 @@ export default function App() {
 		<>
 			<NavBar />
 
-			<div className="container my-5">
+			<main className="container my-5">
 
 				<Routes>
 
@@ -48,7 +49,7 @@ export default function App() {
 
 				</Routes>
 
-			</div>
+			</main>
 
 			<Footer />
 		</>

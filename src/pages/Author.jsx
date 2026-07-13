@@ -1,7 +1,9 @@
 import { useParams } from "react-router-dom";
 import {useEffect, useState} from "react";
 import {getAuthor} from "../services/api.js";
-import LoadingAuthor from "../components/loading/LoadingAuthor.jsx";
+
+// Components
+import Loading from "../components/loading/LoadingAuthor.jsx";
 
 export default function Author() {
 
@@ -15,17 +17,12 @@ export default function Author() {
 
     useEffect(() => {
         const loadAuthor = async () => {
+            setLoading(true);
+            setError(null);
             try { // Attempt to run the API call
-
-                setLoading(true);
-                setError(null);
-
                 const data = await getAuthor(id);
-                // data["books"] = await getAuthorBooks(id);
                 setAuthor(data);
-
                 document.title = `${data.name} | BookBook`; // Dynamic page title
-
             } catch (e) { // If API call fails
                 console.log(e);
                 setError("Failed to load author.");
@@ -36,24 +33,29 @@ export default function Author() {
         loadAuthor();
     }, [id]); // Run whenever id updates
 
+    // Loading State
     if (loading) {
         return(
-            <LoadingAuthor/>
+            <Loading/>
         );
     }
 
+    // Error State
     if (error) {
         return(
-            <h1>Failed to load author</h1>
+            <h1>{error}</h1>
         );
     }
 
-    console.log(author);
-
+    // Standard state
     return(
         <>
+            {/*Author name*/}
             <h1>{author.name}</h1>
-            <p>{"bio" in author ? author.bio.value : "No Bio Found."}</p>
+            {/*Author biography*/}
+            <p className="text-break" style={{"whiteSpace": "pre-line"}}>
+                {"bio" in author ? author.bio.value : "No Bio Found."}
+            </p>
         </>
     );
 }

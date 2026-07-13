@@ -1,9 +1,12 @@
-import HomeBookCard from "../components/books/SearchBookCard.jsx";
+// React
+import { useState, useEffect } from "react";
 
+// API
 import { getTrendingBooks } from "../services/api";
 
-import { useState, useEffect } from "react";
-import LoadingBookCards from "../components/loading/LoadingBookCards.jsx";
+// Components
+import Loading from "../components/loading/LoadingBookCards.jsx";
+import Card from "../components/books/cards/SearchBookCard.jsx";
 
 export default function Home() {
 
@@ -14,34 +17,37 @@ export default function Home() {
     useEffect(() => {
 
         const loadTrendingBooks = async () => {
+            setLoading(true);
+            setError(null);
             try {
                 const trendingBooks = await getTrendingBooks();
                 setBooks(trendingBooks);
-                // console.log(trendingBooks);
             } catch(error) {
                 console.log(error);
-                setError("Failed to load books from Open Library");
+                setError("Failed to load books.");
             } finally {
                 setLoading(false);
             }
         }
-
         loadTrendingBooks();
+
     }, []);
 
-
+    // Loading state
     if (loading) {
         return(
-            <LoadingBookCards title={"Trending Books (Weekly)"}/>
+            <Loading title={"Trending Books (Weekly)"}/>
         );
     }
 
+    // Error state
     if (error) {
         return(
             <h1>{error}</h1>
         );
     }
 
+    // Standard state
     return (
         <>
             <title>Home | BookBook</title>
@@ -52,7 +58,7 @@ export default function Home() {
                 {books.map(
                     (book) =>
                         (
-                            <HomeBookCard book={book} key={book.key} />
+                            <Card book={book} key={book.key} />
                         )
                 )}
             </section>

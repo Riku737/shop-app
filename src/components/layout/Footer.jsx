@@ -9,12 +9,14 @@ function Footer() {
 
                     <div className="row">
 
+                        {/*Far Left*/}
                         <div className="col-lg-3 col-6">
                             <h6>BookBook</h6>
                             <p>A clean, simple catalog where you can organize every book in your reading life. It's your
                                 bookshelf.</p>
                         </div>
 
+                        {/*Center Left*/}
                         <div className="col-lg-3 col-6">
                             <h6>Discover</h6>
                             <ul className="list-unstyled d-flex flex-column gap-2">
@@ -24,6 +26,7 @@ function Footer() {
                             </ul>
                         </div>
 
+                        {/*Center Right*/}
                         <div className="col-lg-3 col-6">
                             <h6>Bookshelf</h6>
                             <ul className="list-unstyled d-flex flex-column gap-2">
@@ -34,6 +37,7 @@ function Footer() {
                             </ul>
                         </div>
 
+                        {/*Far Right*/}
                         <div className="col-lg-3 col-6">
                             <h6>Subject</h6>
                             <ul className="list-unstyled d-flex flex-column gap-2">
@@ -48,6 +52,7 @@ function Footer() {
 
                     <hr/>
 
+                    {/*Website notice/disclaimer*/}
                     <p>This website is a personal, non-commercial project. All book information and cover images are sourced from the <a href="https://openlibrary.org/" target="_blank">Open Library API</a>, and all trademarks belong to their respective owners.</p>
                     <p>This site stores data locally in your browser using IndexedDB. No information is shared or uploaded.</p>
 

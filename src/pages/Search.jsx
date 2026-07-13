@@ -1,13 +1,18 @@
+// React & router
 import { useSearchParams } from 'react-router-dom';
 import {useEffect, useState} from "react";
+
+// API
 import {searchBooks} from "../services/api.js";
-import HomeBookCard from "../components/books/SearchBookCard.jsx";
-import LoadingBookCards from "../components/loading/LoadingBookCards.jsx";
+
+// Components
+import Card from "../components/books/cards/SearchBookCard.jsx";
+import Loading from "../components/loading/LoadingBookCards.jsx";
 
 export default function Search() {
 
-    const [searchParams] = useSearchParams();
-    const query = searchParams.get('q'); // Access query parameter
+    const [searchParams] = useSearchParams(); // Get query parameters from URL
+    const query = searchParams.get('q'); // Access query parameter (localhost/search?q={query})
 
     const [books, setBooks] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -16,20 +21,17 @@ export default function Search() {
     useEffect(() => {
 
         const fetchResults = async () => {
-
             setLoading(true);
-
+            setError(null);
             try {
                 const data = await searchBooks(query);
                 setBooks(data);
-                setError(null);
             } catch (e) {
                 console.log(e);
-                setError("Failed to search books...");
+                setError("Failed to search books.");
             } finally {
                 setLoading(false);
             }
-
         }
         fetchResults();
 
@@ -37,26 +39,27 @@ export default function Search() {
 
     }, [query]);
 
-    // console.log(searchParams);
-
+    // Loading state
     if (loading) {
         return(
-            <LoadingBookCards title={query} />
+            <Loading title={query} />
         )
     }
 
+    // Error state
     if (error) {
         return(
             <h1>{error}</h1>
         )
     }
 
+    // Standard state
     return(
         <>
             <h1 className="mb-4">{query ?? "Search by title or author"}</h1>
             <section className="row g-4">
                 {books.map((book, index) => (
-                    <HomeBookCard book={book} key={index} />
+                    <Card book={book} key={index} />
                 ))}
             </section>
         </>

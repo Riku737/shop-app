@@ -1,4 +1,4 @@
-import {addToBookshelf, isInBookshelf, removeBook} from "../../db/database.js";
+import {addToBookshelf, isInBookshelf, removeBook} from "../../../db/database.js";
 import {useEffect, useState} from "react";
 
 function BookDropdown({ book }) {
@@ -21,14 +21,22 @@ function BookDropdown({ book }) {
     return (
         <>
             <div className="dropdown">
+
+                {/*Unexpanded menu*/}
                 <button className="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Add to Bookshelf
                 </button>
+
+                {/*Expanded menu*/}
                 <ul className="dropdown-menu">
+
+                    {/*Bookshelf actions*/}
                     <li><button onClick={() => addToBookshelfButton("want_to_read")} type="button" className="dropdown-item">Want to Read</button></li>
                     <li><button onClick={() => addToBookshelfButton("reading")} type="button" className="dropdown-item">Currently Reading</button></li>
                     <li><button onClick={() => addToBookshelfButton("read")} type="button" className="dropdown-item">Read</button></li>
                     <li><button onClick={() => addToBookshelfButton("dnf")} type="button" className="dropdown-item">Did Not Finish</button></li>
+
+                    {/*Remove from bookshelf action*/}
                     <li className={`${ !inBookshelf && "d-none"}`}><hr className="dropdown-divider" /></li>
                     <li
                         onClick={() => {
@@ -42,7 +50,9 @@ function BookDropdown({ book }) {
                             Remove From Bookshelf
                         </button>
                     </li>
+
                 </ul>
+
             </div>
         </>
     );
