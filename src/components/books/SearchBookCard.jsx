@@ -17,7 +17,7 @@ export default function SearchBookCard({book}) {
             <div className="d-flex gap-2 h-100 w-100 d-flex flex-column">
 
                 {/*Book Cover*/}
-                <a href={book_link} className="bg-light ratio ratio-1x1 d-flex justify-content-center rounded link-underline link-underline-opacity-0 link-underline-opacity-100-hover">
+                <a href={book_link} className="bg-light ratio ratio-1x1 d-flex justify-content-center rounded">
                     <img
                         src={book.cover_i ? (`https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`) : (`https://placehold.co/400x600?text=No+Cover`)}
                         className="object-fit-contain p-4"
@@ -28,7 +28,7 @@ export default function SearchBookCard({book}) {
                 {/*Book Title & Author*/}
                 <div className="d-flex flex-column">
                     <h6 className="fw-medium m-0"><a href={book_link}>{book.title}</a></h6>
-                    <p className="m-0 fs-6 lh-sm"><small>
+                    <p className="m-0 fs-6"><small>
                         {/*List authors with URLs*/}
                         {/*Robust approach to handle edge cases (null/undefine)*/}
                         {(book?.author_name || []).map((name, index) => (
