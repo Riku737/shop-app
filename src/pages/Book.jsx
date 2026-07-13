@@ -47,9 +47,11 @@ export default function Book() {
         );
     }
 
-    // if (loading) return <h1>Loading...</h1>;
-    if (error) return <h1>Failed to load book</h1>;
-    if (!book) return <h1>No book found</h1>;
+    if (error) {
+        return(
+            <h1>Failed to load book.</h1>
+        );
+    }
 
     // let cover_image;
     // (book.covers) ? cover_image = `https://covers.openlibrary.org/b/id/${book.covers[0]}-L.jpg` : cover_image = "https://placehold.net/400x600.png";
