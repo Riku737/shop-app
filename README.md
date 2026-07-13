@@ -15,12 +15,12 @@ Search for books, add them to your reading lists, and keep track of your progres
 ___
 
 ## Features
-* Built with **ReactJS + Vite** using modern **JavaScript**, **React Hooks**, and **React Router DOM** for dynamic routes and query-based navigation
-* Search by title/author via the **Open Library API**, with helper-based fetching and request-limit-aware handling
-* Track books in four shelves (**Want to Read, Currently Reading, Read, Did Not Finish**) with seamless move/remove actions
-* Styled using **Bootstrap** components customized with **Sass/CSS** (plus **HTML/CSS** foundations and Google Fonts)
-* Better UX through loading skeletons, edge/error states, and read more/read less descriptions
-* Uses **Dexie.js** (**IndexedDB**) for local persistence with seed/helper utilities, and is deployed on **Vercel**
+* Built with **ReactJS + Vite** using modern **JavaScript**, **React Hooks**, and **React Router DOM** for dynamic routes and query-based navigation.
+* Search by title/author via the **Open Library API**, with helper-based fetching and request-limit-aware handling.
+* Track books in four shelves (**Want to Read, Currently Reading, Read, Did Not Finish**) with seamless move/remove actions.
+* Styled using **Bootstrap** components customized with **Sass/CSS** (plus **HTML/CSS** foundations and Google Fonts).
+* Better UX through loading skeletons, edge/error states, and read more/read less descriptions.
+* Uses **Dexie.js** (**IndexedDB**) for local persistence with seed/helper utilities, and is deployed on **Vercel**.
 
 ___
 
