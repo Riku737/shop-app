@@ -32,7 +32,7 @@ export default function Home() {
 
     if (loading) {
         return(
-            <LoadingBookCards title={"Home"}/>
+            <LoadingBookCards title={"Trending Books (Weekly)"}/>
         );
     }
 
@@ -46,7 +46,7 @@ export default function Home() {
         <>
             <title>Home | BookBook</title>
             <section>
-                <h1 className="mb-4">Home</h1>
+                <h1 className="mb-4">Trending Books (Weekly)</h1>
             </section>
             <section className="row g-4">
                 {books.map(
