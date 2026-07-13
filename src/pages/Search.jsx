@@ -57,6 +57,7 @@ export default function Search() {
     return(
         <section>
             <h1 className="mb-4">{query ?? "Search by title or author"}</h1>
+            <p className="d-sm-none mb-4">Sorry, search is currently unavailable on smaller screens.</p>
             <section className="row g-4">
                 {books.map((book, index) => (
                     <Card book={book} key={index} />
