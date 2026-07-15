@@ -3,9 +3,6 @@ import './styles/css/App.css';
 import './styles/custom.scss';
 import { Routes, Route } from "react-router-dom";
 
-// Vercel
-import { Analytics } from "@vercel/analytics/next";
-
 // Components
 import NavBar from './components/layout/NavBar.jsx';
 import Footer from './components/layout/Footer.jsx';
@@ -56,7 +53,6 @@ export default function App() {
 			</main>
 
 			<Footer />
-			<Analytics />
 		</>
 	);
 }
